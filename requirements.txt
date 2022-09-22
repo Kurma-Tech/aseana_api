@@ -4,3 +4,4 @@ Flask==2.0.1
 pandas==1.4.2
 plotly==5.8.0
 pycaret-nightly==2.3.10.dev1651454453
+gunicorn
