@@ -154,4 +154,4 @@ def create_prediction(data, years_to_predict, column_name):
     return prediction_json
 
 
-app.run(debug=True)
+# app.run(debug=True)
