@@ -1,0 +1,591 @@
+<?php
+$client = new Client();
+$headers = [
+  'Content-Type' => 'application/json'
+];
+$body = '{
+  "auth_token": "YXNlYW5hYXBpcHJvamVjdA==",
+  "column_name": "Agriculture",
+  "years_to_predict": 5,
+  "data_to_predict": [
+    {
+      "Date": "2011-01",
+      "Agriculture": 112
+    },
+    {
+      "Date": "2011-02",
+      "Agriculture": 118
+    },
+    {
+      "Date": "2011-03",
+      "Agriculture": 132
+    },
+    {
+      "Date": "2011-04",
+      "Agriculture": 129
+    },
+    {
+      "Date": "2011-05",
+      "Agriculture": 121
+    },
+    {
+      "Date": "2011-06",
+      "Agriculture": 135
+    },
+    {
+      "Date": "2011-07",
+      "Agriculture": 148
+    },
+    {
+      "Date": "2011-08",
+      "Agriculture": 148
+    },
+    {
+      "Date": "2011-09",
+      "Agriculture": 136
+    },
+    {
+      "Date": "2011-10",
+      "Agriculture": 119
+    },
+    {
+      "Date": "2011-11",
+      "Agriculture": 104
+    },
+    {
+      "Date": "2011-12",
+      "Agriculture": 118
+    },
+    {
+      "Date": "2012-01",
+      "Agriculture": 115
+    },
+    {
+      "Date": "2012-02",
+      "Agriculture": 126
+    },
+    {
+      "Date": "2012-03",
+      "Agriculture": 141
+    },
+    {
+      "Date": "2012-04",
+      "Agriculture": 135
+    },
+    {
+      "Date": "2012-05",
+      "Agriculture": 125
+    },
+    {
+      "Date": "2012-06",
+      "Agriculture": 149
+    },
+    {
+      "Date": "2012-07",
+      "Agriculture": 170
+    },
+    {
+      "Date": "2012-08",
+      "Agriculture": 170
+    },
+    {
+      "Date": "2012-09",
+      "Agriculture": 158
+    },
+    {
+      "Date": "2012-10",
+      "Agriculture": 133
+    },
+    {
+      "Date": "2012-11",
+      "Agriculture": 114
+    },
+    {
+      "Date": "2012-12",
+      "Agriculture": 140
+    },
+    {
+      "Date": "2013-01",
+      "Agriculture": 145
+    },
+    {
+      "Date": "2013-02",
+      "Agriculture": 150
+    },
+    {
+      "Date": "2013-03",
+      "Agriculture": 178
+    },
+    {
+      "Date": "2013-04",
+      "Agriculture": 163
+    },
+    {
+      "Date": "2013-05",
+      "Agriculture": 172
+    },
+    {
+      "Date": "2013-06",
+      "Agriculture": 178
+    },
+    {
+      "Date": "2013-07",
+      "Agriculture": 199
+    },
+    {
+      "Date": "2013-08",
+      "Agriculture": 199
+    },
+    {
+      "Date": "2013-09",
+      "Agriculture": 184
+    },
+    {
+      "Date": "2013-10",
+      "Agriculture": 162
+    },
+    {
+      "Date": "2013-11",
+      "Agriculture": 146
+    },
+    {
+      "Date": "2013-12",
+      "Agriculture": 166
+    },
+    {
+      "Date": "2014-01",
+      "Agriculture": 171
+    },
+    {
+      "Date": "2014-02",
+      "Agriculture": 180
+    },
+    {
+      "Date": "2014-03",
+      "Agriculture": 193
+    },
+    {
+      "Date": "2014-04",
+      "Agriculture": 181
+    },
+    {
+      "Date": "2014-05",
+      "Agriculture": 183
+    },
+    {
+      "Date": "2014-06",
+      "Agriculture": 218
+    },
+    {
+      "Date": "2014-07",
+      "Agriculture": 230
+    },
+    {
+      "Date": "2014-08",
+      "Agriculture": 242
+    },
+    {
+      "Date": "2014-09",
+      "Agriculture": 209
+    },
+    {
+      "Date": "2014-10",
+      "Agriculture": 191
+    },
+    {
+      "Date": "2014-11",
+      "Agriculture": 172
+    },
+    {
+      "Date": "2014-12",
+      "Agriculture": 194
+    },
+    {
+      "Date": "2015-01",
+      "Agriculture": 196
+    },
+    {
+      "Date": "2015-02",
+      "Agriculture": 196
+    },
+    {
+      "Date": "2015-03",
+      "Agriculture": 236
+    },
+    {
+      "Date": "2015-04",
+      "Agriculture": 235
+    },
+    {
+      "Date": "2015-05",
+      "Agriculture": 229
+    },
+    {
+      "Date": "2015-06",
+      "Agriculture": 243
+    },
+    {
+      "Date": "2015-07",
+      "Agriculture": 264
+    },
+    {
+      "Date": "2015-08",
+      "Agriculture": 272
+    },
+    {
+      "Date": "2015-09",
+      "Agriculture": 237
+    },
+    {
+      "Date": "2015-10",
+      "Agriculture": 211
+    },
+    {
+      "Date": "2015-11",
+      "Agriculture": 180
+    },
+    {
+      "Date": "2015-12",
+      "Agriculture": 201
+    },
+    {
+      "Date": "2016-01",
+      "Agriculture": 204
+    },
+    {
+      "Date": "2016-02",
+      "Agriculture": 188
+    },
+    {
+      "Date": "2016-03",
+      "Agriculture": 235
+    },
+    {
+      "Date": "2016-04",
+      "Agriculture": 227
+    },
+    {
+      "Date": "2016-05",
+      "Agriculture": 234
+    },
+    {
+      "Date": "2016-06",
+      "Agriculture": 264
+    },
+    {
+      "Date": "2016-07",
+      "Agriculture": 302
+    },
+    {
+      "Date": "2016-08",
+      "Agriculture": 293
+    },
+    {
+      "Date": "2016-09",
+      "Agriculture": 259
+    },
+    {
+      "Date": "2016-10",
+      "Agriculture": 229
+    },
+    {
+      "Date": "2016-11",
+      "Agriculture": 203
+    },
+    {
+      "Date": "2016-12",
+      "Agriculture": 229
+    },
+    {
+      "Date": "2017-01",
+      "Agriculture": 242
+    },
+    {
+      "Date": "2017-02",
+      "Agriculture": 233
+    },
+    {
+      "Date": "2017-03",
+      "Agriculture": 267
+    },
+    {
+      "Date": "2017-04",
+      "Agriculture": 269
+    },
+    {
+      "Date": "2017-05",
+      "Agriculture": 270
+    },
+    {
+      "Date": "2017-06",
+      "Agriculture": 315
+    },
+    {
+      "Date": "2017-07",
+      "Agriculture": 364
+    },
+    {
+      "Date": "2017-08",
+      "Agriculture": 347
+    },
+    {
+      "Date": "2017-09",
+      "Agriculture": 312
+    },
+    {
+      "Date": "2017-10",
+      "Agriculture": 274
+    },
+    {
+      "Date": "2017-11",
+      "Agriculture": 237
+    },
+    {
+      "Date": "2017-12",
+      "Agriculture": 278
+    },
+    {
+      "Date": "2018-01",
+      "Agriculture": 284
+    },
+    {
+      "Date": "2018-02",
+      "Agriculture": 277
+    },
+    {
+      "Date": "2018-03",
+      "Agriculture": 317
+    },
+    {
+      "Date": "2018-04",
+      "Agriculture": 313
+    },
+    {
+      "Date": "2018-05",
+      "Agriculture": 318
+    },
+    {
+      "Date": "2018-06",
+      "Agriculture": 374
+    },
+    {
+      "Date": "2018-07",
+      "Agriculture": 413
+    },
+    {
+      "Date": "2018-08",
+      "Agriculture": 405
+    },
+    {
+      "Date": "2018-09",
+      "Agriculture": 355
+    },
+    {
+      "Date": "2018-10",
+      "Agriculture": 306
+    },
+    {
+      "Date": "2018-11",
+      "Agriculture": 271
+    },
+    {
+      "Date": "2018-12",
+      "Agriculture": 306
+    },
+    {
+      "Date": "2019-01",
+      "Agriculture": 315
+    },
+    {
+      "Date": "2019-02",
+      "Agriculture": 301
+    },
+    {
+      "Date": "2019-03",
+      "Agriculture": 356
+    },
+    {
+      "Date": "2019-04",
+      "Agriculture": 348
+    },
+    {
+      "Date": "2019-05",
+      "Agriculture": 355
+    },
+    {
+      "Date": "2019-06",
+      "Agriculture": 422
+    },
+    {
+      "Date": "2019-07",
+      "Agriculture": 465
+    },
+    {
+      "Date": "2019-08",
+      "Agriculture": 467
+    },
+    {
+      "Date": "2019-09",
+      "Agriculture": 404
+    },
+    {
+      "Date": "2019-10",
+      "Agriculture": 347
+    },
+    {
+      "Date": "2019-11",
+      "Agriculture": 305
+    },
+    {
+      "Date": "2019-12",
+      "Agriculture": 336
+    },
+    {
+      "Date": "2020-01",
+      "Agriculture": 340
+    },
+    {
+      "Date": "2020-02",
+      "Agriculture": 318
+    },
+    {
+      "Date": "2020-03",
+      "Agriculture": 362
+    },
+    {
+      "Date": "2020-04",
+      "Agriculture": 348
+    },
+    {
+      "Date": "2020-05",
+      "Agriculture": 363
+    },
+    {
+      "Date": "2020-06",
+      "Agriculture": 435
+    },
+    {
+      "Date": "2020-07",
+      "Agriculture": 491
+    },
+    {
+      "Date": "2020-08",
+      "Agriculture": 505
+    },
+    {
+      "Date": "2020-09",
+      "Agriculture": 404
+    },
+    {
+      "Date": "2020-10",
+      "Agriculture": 359
+    },
+    {
+      "Date": "2020-11",
+      "Agriculture": 310
+    },
+    {
+      "Date": "2020-12",
+      "Agriculture": 337
+    },
+    {
+      "Date": "2021-01",
+      "Agriculture": 360
+    },
+    {
+      "Date": "2021-02",
+      "Agriculture": 342
+    },
+    {
+      "Date": "2021-03",
+      "Agriculture": 406
+    },
+    {
+      "Date": "2021-04",
+      "Agriculture": 396
+    },
+    {
+      "Date": "2021-05",
+      "Agriculture": 420
+    },
+    {
+      "Date": "2021-06",
+      "Agriculture": 472
+    },
+    {
+      "Date": "2021-07",
+      "Agriculture": 548
+    },
+    {
+      "Date": "2021-08",
+      "Agriculture": 559
+    },
+    {
+      "Date": "2021-09",
+      "Agriculture": 463
+    },
+    {
+      "Date": "2021-10",
+      "Agriculture": 407
+    },
+    {
+      "Date": "2021-11",
+      "Agriculture": 362
+    },
+    {
+      "Date": "2021-12",
+      "Agriculture": 405
+    },
+    {
+      "Date": "2022-01",
+      "Agriculture": 417
+    },
+    {
+      "Date": "2022-02",
+      "Agriculture": 391
+    },
+    {
+      "Date": "2022-03",
+      "Agriculture": 419
+    },
+    {
+      "Date": "2022-04",
+      "Agriculture": 461
+    },
+    {
+      "Date": "2022-05",
+      "Agriculture": 472
+    },
+    {
+      "Date": "2022-06",
+      "Agriculture": 535
+    },
+    {
+      "Date": "2022-07",
+      "Agriculture": 622
+    },
+    {
+      "Date": "2022-08",
+      "Agriculture": 606
+    },
+    {
+      "Date": "2022-09",
+      "Agriculture": 508
+    },
+    {
+      "Date": "2022-10",
+      "Agriculture": 461
+    },
+    {
+      "Date": "2022-11",
+      "Agriculture": 390
+    },
+    {
+      "Date": "2022-12",
+      "Agriculture": 432
+    }
+  ]
+}';
+$request = new Request('POST', 'http://127.0.0.1:5000/api/v1/predict', $headers, $body);
+$res = $client->sendAsync($request)->wait();
+echo $res->getBody();

@@ -1,0 +1,201 @@
+{
+    "prediction_data": [
+        {
+            "Date": "2023-01",
+            "Manufacturing Prediction": 541
+        },
+        {
+            "Date": "2023-02",
+            "Manufacturing Prediction": 544
+        },
+        {
+            "Date": "2023-03",
+            "Manufacturing Prediction": 630
+        },
+        {
+            "Date": "2023-04",
+            "Manufacturing Prediction": 610
+        },
+        {
+            "Date": "2023-05",
+            "Manufacturing Prediction": 608
+        },
+        {
+            "Date": "2023-06",
+            "Manufacturing Prediction": 693
+        },
+        {
+            "Date": "2023-07",
+            "Manufacturing Prediction": 772
+        },
+        {
+            "Date": "2023-08",
+            "Manufacturing Prediction": 771
+        },
+        {
+            "Date": "2023-09",
+            "Manufacturing Prediction": 686
+        },
+        {
+            "Date": "2023-10",
+            "Manufacturing Prediction": 600
+        },
+        {
+            "Date": "2023-11",
+            "Manufacturing Prediction": 525
+        },
+        {
+            "Date": "2023-12",
+            "Manufacturing Prediction": 601
+        },
+        {
+            "Date": "2024-01",
+            "Manufacturing Prediction": 620
+        },
+        {
+            "Date": "2024-02",
+            "Manufacturing Prediction": 623
+        },
+        {
+            "Date": "2024-03",
+            "Manufacturing Prediction": 722
+        },
+        {
+            "Date": "2024-04",
+            "Manufacturing Prediction": 699
+        },
+        {
+            "Date": "2024-05",
+            "Manufacturing Prediction": 697
+        },
+        {
+            "Date": "2024-06",
+            "Manufacturing Prediction": 794
+        },
+        {
+            "Date": "2024-07",
+            "Manufacturing Prediction": 884
+        },
+        {
+            "Date": "2024-08",
+            "Manufacturing Prediction": 883
+        },
+        {
+            "Date": "2024-09",
+            "Manufacturing Prediction": 786
+        },
+        {
+            "Date": "2024-10",
+            "Manufacturing Prediction": 687
+        },
+        {
+            "Date": "2024-11",
+            "Manufacturing Prediction": 602
+        },
+        {
+            "Date": "2024-12",
+            "Manufacturing Prediction": 688
+        },
+        {
+            "Date": "2025-01",
+            "Manufacturing Prediction": 710
+        },
+        {
+            "Date": "2025-02",
+            "Manufacturing Prediction": 713
+        },
+        {
+            "Date": "2025-03",
+            "Manufacturing Prediction": 827
+        },
+        {
+            "Date": "2025-04",
+            "Manufacturing Prediction": 801
+        },
+        {
+            "Date": "2025-05",
+            "Manufacturing Prediction": 798
+        },
+        {
+            "Date": "2025-06",
+            "Manufacturing Prediction": 910
+        },
+        {
+            "Date": "2025-07",
+            "Manufacturing Prediction": 1013
+        },
+        {
+            "Date": "2025-08",
+            "Manufacturing Prediction": 1012
+        },
+        {
+            "Date": "2025-09",
+            "Manufacturing Prediction": 901
+        },
+        {
+            "Date": "2025-10",
+            "Manufacturing Prediction": 787
+        },
+        {
+            "Date": "2025-11",
+            "Manufacturing Prediction": 689
+        },
+        {
+            "Date": "2025-12",
+            "Manufacturing Prediction": 789
+        },
+        {
+            "Date": "2026-01",
+            "Manufacturing Prediction": 813
+        },
+        {
+            "Date": "2026-02",
+            "Manufacturing Prediction": 817
+        },
+        {
+            "Date": "2026-03",
+            "Manufacturing Prediction": 948
+        },
+        {
+            "Date": "2026-04",
+            "Manufacturing Prediction": 918
+        },
+        {
+            "Date": "2026-05",
+            "Manufacturing Prediction": 915
+        },
+        {
+            "Date": "2026-06",
+            "Manufacturing Prediction": 1044
+        },
+        {
+            "Date": "2026-07",
+            "Manufacturing Prediction": 1162
+        },
+        {
+            "Date": "2026-08",
+            "Manufacturing Prediction": 1160
+        },
+        {
+            "Date": "2026-09",
+            "Manufacturing Prediction": 1033
+        },
+        {
+            "Date": "2026-10",
+            "Manufacturing Prediction": 902
+        },
+        {
+            "Date": "2026-11",
+            "Manufacturing Prediction": 790
+        },
+        {
+            "Date": "2026-12",
+            "Manufacturing Prediction": 904
+        },
+        {
+            "Date": "2027-01",
+            "Manufacturing Prediction": 932
+        }
+    ],
+    "status": 200
+}
