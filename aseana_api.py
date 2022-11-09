@@ -14,7 +14,7 @@ def index():
 
 @app.route('/api/v1/predict', methods=['POST'])
 def predict():
-  try:
+  # try:
     mydb = mysql.connector.connect(
       host="13.250.218.164",
       # host="localhost",
@@ -49,9 +49,13 @@ def predict():
     dataframe = pd.DataFrame()
     dataframe['DateTime'] = [i[0] for i in myresult]
 
+    
+
     dataframe['Count'] = [i[1] for i in myresult]
 
     dataframe['DateTime'] = pd.to_datetime(dataframe['DateTime']).dt.date
+    
+    dataframe = dataframe.groupby('DateTime', as_index=False).sum()
     dataframe.sort_values(by="DateTime", inplace=True)
 
     dataframe.index = pd.DatetimeIndex(dataframe['DateTime'])
@@ -138,7 +142,7 @@ def predict():
 
     # fig = px.line(concat_df, x=concat_df.index, y=["Count", "Label"], template = 'plotly_dark')
     # fig.show()
-  except:
-    return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': "Not enough data to forcast."})
+  # except Exception as e:
+  #   return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': "Not enough data to forcast.", 'exception': str(e.__class__)})
 
 # app.run(debug=True)
