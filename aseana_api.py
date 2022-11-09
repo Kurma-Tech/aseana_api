@@ -14,7 +14,7 @@ def index():
 
 @app.route('/api/v1/predict', methods=['POST'])
 def predict():
-  # try:
+  try:
     mydb = mysql.connector.connect(
       host="13.250.218.164",
       # host="localhost",
@@ -137,12 +137,13 @@ def predict():
 
     return jsonify({'status': HTTPStatus.OK, 'prediction_data': {
       "values": concat_df["Count"].to_list(),
-      "keys":  concat_df_i.strftime('%Y-%m-%d').to_list()
+      "keys":  concat_df_i.strftime('%Y-%m-%d').to_list(),
+      "success": True
     }})
 
     # fig = px.line(concat_df, x=concat_df.index, y=["Count", "Label"], template = 'plotly_dark')
     # fig.show()
-  # except Exception as e:
-  #   return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': "Not enough data to forcast.", 'exception': str(e.__class__)})
+  except Exception as e:
+    return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': "Not enough data to forcast.", 'exception': str(e.__class__), "success": False})
 
 # app.run(debug=True)
