@@ -137,9 +137,8 @@ def predict():
 
     return jsonify({'status': HTTPStatus.OK, 'prediction_data': {
       "values": concat_df["Count"].to_list(),
-      "keys":  concat_df_i.strftime('%Y-%m-%d').to_list(),
-      "success": True
-    }})
+      "keys":  concat_df_i.strftime('%Y-%m-%d').to_list()
+    }, "success": True})
 
     # fig = px.line(concat_df, x=concat_df.index, y=["Count", "Label"], template = 'plotly_dark')
     # fig.show()
