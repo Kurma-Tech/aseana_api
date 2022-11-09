@@ -1,14 +1,12 @@
 import mysql.connector
 import pandas as pd
 import numpy as np
-from flask import Flask, request, jsonify, abort
-import plotly.express as px
+from flask import Flask, request, jsonify
 from pycaret.regression import *
 from http import HTTPStatus
 
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -16,7 +14,7 @@ def index():
 
 @app.route('/api/v1/predict', methods=['POST'])
 def predict():
-  # try:
+  try:
     mydb = mysql.connector.connect(
       host="13.250.218.164",
       # host="localhost",
@@ -31,7 +29,18 @@ def predict():
 
     mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT month_and_year, COUNT(*) FROM businesses GROUP BY month_and_year ORDER BY month_and_year")
+    queryString = "SELECT month_and_year, COUNT(*) FROM businesses "
+    request_json_data = request.get_json()
+
+    if (request_json_data["country_id"] is not None):
+      queryString = queryString + f"WHERE country_id = {request_json_data['country_id']} "
+
+    if (request_json_data["classification_id"] is not None):
+      queryString = queryString + f"AND parent_classification_id = {request_json_data['classification_id']} "
+
+    queryString = queryString + "GROUP BY month_and_year ORDER BY month_and_year"
+
+    mycursor.execute(queryString)
 
     myresult = mycursor.fetchall()
 
@@ -42,7 +51,6 @@ def predict():
 
     dataframe['Count'] = [i[1] for i in myresult]
 
-    # print(dataframe['Count'])
     dataframe['DateTime'] = pd.to_datetime(dataframe['DateTime']).dt.date
     dataframe.sort_values(by="DateTime", inplace=True)
 
@@ -82,16 +90,9 @@ def predict():
 
     # import the regression module
 
-
-    print("here")
     # initialize setup
     s = setup(data = train, test_data = test, target = 'Count', fold_strategy = 'timeseries', numeric_features = ['Year', 'Series'], fold = 3, transform_target = True, html=False, silent=True, session_id = 123, verbose=False)
-    print("here")
     best = compare_models(sort = 'MAE', verbose=False)
-
-    print("here")
-
-
     final_best = finalize_model(best)
 
     future_dates = pd.date_range(start = '2020-01-01', end = '2030-12-01', freq = 'MS')
@@ -137,7 +138,7 @@ def predict():
 
     # fig = px.line(concat_df, x=concat_df.index, y=["Count", "Label"], template = 'plotly_dark')
     # fig.show()
-  # except:
-  #   return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': "Not enough data to forcast."})
+  except:
+    return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': "Not enough data to forcast."})
 
-# app.run(debug=True)
+app.run(debug=True)
