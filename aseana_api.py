@@ -35,8 +35,11 @@ def predict():
     if (request_json_data["country_id"] is not None):
       queryString = queryString + f"WHERE country_id = {request_json_data['country_id']} "
 
-    if (request_json_data["classification_id"] is not None):
-      queryString = queryString + f"AND parent_classification_id = {request_json_data['classification_id']} "
+      if (request_json_data["classification_id"] is not None):
+        queryString = queryString + f"AND parent_classification_id = {request_json_data['classification_id']} "
+    else:
+      if (request_json_data["classification_id"] is not None):
+        queryString = queryString + f"WHERE parent_classification_id = {request_json_data['classification_id']} "
 
     queryString = queryString + "GROUP BY month_and_year ORDER BY month_and_year"
 
@@ -48,8 +51,6 @@ def predict():
 
     dataframe = pd.DataFrame()
     dataframe['DateTime'] = [i[0] for i in myresult]
-
-    
 
     dataframe['Count'] = [i[1] for i in myresult]
 
