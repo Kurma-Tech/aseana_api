@@ -41,17 +41,14 @@ def predict():
 
     if auth_token != AUTH_TOKEN:
         return jsonify({'status': HTTPStatus.UNAUTHORIZED, 'message': HTTPStatus.UNAUTHORIZED.description})
-
     column_name = request_json_data[JSON_DATA[1]]
     years_to_predict = request_json_data[JSON_DATA[2]]
     data_to_predict = request_json_data[JSON_DATA[3]]
-
     # translate the json data to pandas dataframe and catch some error on translating
     try:
         data_to_predict_df = pd.DataFrame.from_records(data_to_predict)
     except Exception as e:
         return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': e})
-
     # catch errors on prediction
     try:
         # call the prediction method
@@ -66,21 +63,17 @@ def create_prediction(data, years_to_predict, column_name):
 
     # convert the date string into datetime
     data['Date'] = pd.to_datetime(data['Date'])
-
+    
     # extract month and year from dates
     data['Month'] = [i.month for i in data['Date']]
     data['Year'] = [i.year for i in data['Date']]
-
     # create a sequence of numbers
     data['Series'] = np.arange(1, len(data) + 1)
-
     # drop unnecessary columns and re-arrange
     data.drop(['Date'], axis=1, inplace=True)
     data = data[['Series', 'Year', 'Month', column_name]]
-
     start_year = list(data.iloc[[0, ]]['Year'])[0]
     end_year = list(data.iloc[[-1, ]]['Year'])[0]
-
     # split data into train-test set
     yd = end_year - start_year
     # get the test percentage 20%
@@ -89,7 +82,6 @@ def create_prediction(data, years_to_predict, column_name):
     trp = yd - tep
     train = data[data['Year'] < (end_year - tep)]
     test = data[data['Year'] >= (end_year - tep)]
-
     # initialize configuration
     prediction_config = setup(data=train,
                               test_data=test,
@@ -103,13 +95,10 @@ def create_prediction(data, years_to_predict, column_name):
                               html=False,
                               silent=True,
                               verbose=False)
-
     # select fitting model / preprocessing
     best = compare_models(sort='MAE', verbose=False)
-
     # generate predictions on the original dataset
     final_best = finalize_model(best)
-
     psy = '{}-01-01'.format(end_year + 1)
     pey = '{}-01-01'.format(end_year + years_to_predict)
     future_dates = pd.date_range(start=psy, end=pey, freq='MS')
