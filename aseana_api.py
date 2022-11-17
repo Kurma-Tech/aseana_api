@@ -88,4 +88,4 @@ def predict():
   except Exception as e:
     return jsonify({'status': HTTPStatus.INTERNAL_SERVER_ERROR, 'message': "Not enough data to forcast.", 'exception': str(e.__class__), "success": False})
 
-app.run(debug=True)
+# app.run(debug=True)
