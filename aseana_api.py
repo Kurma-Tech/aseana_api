@@ -16,15 +16,15 @@ def index():
 def predict():
   try:
     mydb = mysql.connector.connect(
-    # host="13.250.218.164",
-    host="localhost",
-    # port="3306",
-    # user="asean",
-    user="root",
-    # password="Zenith4780@",
-    password="",
-    database="asean"
-    # database="aseana_db"
+    host="13.250.218.164",
+    # host="localhost",
+    port="3306",
+    user="asean",
+    # user="root",
+    password="Zenith4780@",
+    # password="",
+    # database="asean"
+    database="aseana_db"
     )
 
     mycursor = mydb.cursor()
