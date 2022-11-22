@@ -52,6 +52,7 @@ def predict():
 
     # dataframe = dataframe.groupby('DateTime', as_index=False).sum()
     dataframe.sort_values(by="Year", inplace=True)
+    dataframe = dataframe.replace(to_replace='None', value=np.nan).dropna()
 
     # dataframe.index = pd.DatetimeIndex(dataframe['DateTime'])
 
