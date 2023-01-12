@@ -4,9 +4,11 @@ import numpy as np
 from flask import Flask, request, jsonify
 from pycaret.regression import *
 from http import HTTPStatus
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
